@@ -134,12 +134,15 @@ if __name__ == '__main__':
 	#For each user find issues
 	for user in users:
 
+		total_issues = 0
+
 		email_subject = 'Redmine Reminder: '
 		email_body = '\r\n'
 
 		#Build the body of the email
 		if options.overdue_flag == True:
 			(assigned_overdue_issues, watched_overdue_issues) = get_issues("due_date", user)
+			total_issues += len(assigned_overdue_issues) + len(watched_overdue_issues)
 			email_subject += '%s issues are overdue. ' % (len(assigned_overdue_issues))
 			email_body += '+ Overdue Issues: +\r\n\r\n'
 			email_body += 'Assigned to You: (%s)\r\n' % (len(assigned_overdue_issues))
@@ -160,6 +163,7 @@ if __name__ == '__main__':
 
 		if options.current_flag == True:
 			(assigned_current_issues, watched_current_issues) = get_issues("current", user)
+			total_issues += len(assigned_current_issues) + len(watched_current_issues)
 			email_subject += '%s issues are coming due. ' % (len(assigned_current_issues))
 			email_body += '+ Issues due in the next %s days: +\r\n\r\n' % (DAYS)
 			email_body += 'Assigned to You: (%s)\r\n' % (len(assigned_current_issues))
@@ -180,6 +184,7 @@ if __name__ == '__main__':
 			
 		if options.starting_flag == True:
 			(assigned_starting_issues, watched_starting_issues) = get_issues("start_date", user)
+			total_issues += len(assigned_starting_issues) + len(watched_starting_issues)
 			email_subject += '%s issues are starting.' % (len(assigned_starting_issues))
 			email_body += '+ Issues starting in the next %s days: +\r\n\r\n' % (DAYS)
 			email_body += 'Assigned to You: (%s)\r\n' % (len(assigned_starting_issues))
@@ -199,7 +204,7 @@ if __name__ == '__main__':
 					email_body += 'http://%s/issues?watcher_id=%s&set_filter=1&sort_key=start_date&sort_order=asc\r\n\r\n' % (options.web_host, user['id'])
 
 		#Send an email.
-		if (user['id'] == options.test_user) or (options.test_user == None): 
+		if ( ( (user['id'] == options.test_user) or (options.test_user == None) ) and (total_issues > 0) ): 
 			send_email(smtp_host, user['mail'], email_subject, email_body)
 		
 	#Clean up.
