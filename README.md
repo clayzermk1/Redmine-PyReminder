@@ -48,7 +48,7 @@ through the next 7 days (i.e. issues that will be starting within 7 days).
 Optionally you can enable or disable watched issues matching the same criteria.
 
 If you would like to test the script without blasting every user in your
-database, you can use the "-t USERID, --test_user=USERID" options to specify a
+database, you can use the ``-t USERID``, ``--test_user=USERID`` options to specify a
 single user to send the email to.
 
 ## Release History
