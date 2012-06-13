@@ -1,0 +1,138 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Redmine-PyReminder</title>
+  <meta name="description" content="A Redmine email reminder written in python.">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Redmine-PyReminder</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A Redmine email reminder written in python.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/clayzermk1/Redmine-PyReminder/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/clayzermk1/Redmine-PyReminder/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/clayzermk1/Redmine-PyReminder" class="code">View Redmine-PyReminder on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>Redmine PyReminder</h1>
+
+<p>A Redmine email reminder written in python.</p>
+
+<h2>About</h2>
+
+<p>Originally, I used the Advanced Reminder plugin
+(<a href="http://www.redmine.org/plugins/advanced_reminder">http://www.redmine.org/plugins/advanced_reminder</a>) which worked very well.
+Colleagues began requesting features of the reminder. Unfortunately, I do not
+know Ruby and despite trying my best to decipher the plugin's code, could not
+fully grasp the workings of the rake script. So I set about building one in
+Python that included the requested features.</p>
+
+<p>PyReminder will send emails to each Redmine user reminding them of a
+configurable set of issues.</p>
+
+<p>PyReminder is a Python script that is set up as a cron task. All configuration
+options are passed via the command line. The script will make several queries
+to the Redmine database and send out emails based on the results.</p>
+
+<h2>Getting Started</h2>
+
+<h3>Requirements</h3>
+
+<p>Tested against:</p>
+
+<ul>
+<li>python 2.4.3</li>
+<li>MySQL-python 1.2.1-1</li>
+<li>Redmine 1.2.1</li>
+<li>mysql Ver 14.12 Distrib 5.0.77, for redhat-linux-gnu (x86_64) using readline 5.1</li>
+</ul><h3>Installation</h3>
+
+<p>On EL5 Linux:</p>
+
+<pre><code>cd /etc/cron.daily
+ln -s /path/to/redmine_pyreminder_cron.sh redmine_pyreminder
+</code></pre>
+
+<p>Edit redmine_pyreminder_cron.sh and configure it for your database,
+SMTP server, and desired notificaitons.</p>
+
+<h2>Documentation</h2>
+
+<p>The script has built in help that is accessible by passing it the <code>-h</code> or <code>--help</code> 
+options.</p>
+
+<p>There are three catagories of issues: overdue, current, and starting.
+Overdue issues are issues that have assigned due dates in the past that are
+still "open".
+Current issues are issues that have an assigned due date from today through the
+next 7 days (i.e. issues that will be due within 7 days).
+Starting issues are issues that have an assigned start date between today
+through the next 7 days (i.e. issues that will be starting within 7 days).</p>
+
+<p>Optionally you can enable or disable watched issues matching the same criteria.</p>
+
+<p>If you would like to test the script without blasting every user in your
+database, you can use the <code>-t USERID</code>, <code>--test_user=USERID</code> options to specify a
+single user to send the email to.</p>
+
+<h2>Release History</h2>
+
+<p>Nothing yet</p>
+
+<h2>License</h2>
+
+<p>Copyright (c) 2011 Clay Walker<br>
+Licensed under the GPLv2 only license.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/clayzermk1" class="avatar"><img src="https://secure.gravatar.com/avatar/55a0690de99d6dc9dabc6f3adfbc8c28?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" width="48" height="48"/></a> <a href="https://github.com/clayzermk1">clayzermk1</a> maintains <a href="https://github.com/clayzermk1/Redmine-PyReminder">Redmine-PyReminder</a></p>
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/clayzermk1/Redmine-PyReminder/tarball/master" class="tar">tar</a><a href="https://github.com/clayzermk1/Redmine-PyReminder/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32488466-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+</body>
+</html>
