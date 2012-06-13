@@ -1,7 +1,8 @@
 #!/usr/bin/python
+# A Redmine email reminder written in Python.
 # Copyright Clay Walker (clayzermk1@gmail.com)
 # Licensed under the GPLv2 ONLY
-# Distributed at https://github.com/clayzermk1/redmine_pyreminder
+# Distributed at https://github.com/clayzermk1/Redmine-PyReminder
 
 import MySQLdb, smtplib
 from optparse import OptionParser
