@@ -20,15 +20,17 @@ to the Redmine database and send out emails based on the results.
 ## Getting Started
 ### Requirements
 Tested against:
-python 2.4.3
-MySQL-python 1.2.1-1
-Redmine 1.2.1
-mysql Ver 14.12 Distrib 5.0.77, for redhat-linux-gnu (x86_64) using readline 5.1
+* python 2.4.3
+* MySQL-python 1.2.1-1
+* Redmine 1.2.1
+* mysql Ver 14.12 Distrib 5.0.77, for redhat-linux-gnu (x86_64) using readline 5.1
 
 ### Installation
 On EL5 Linux:
+```
 cd /etc/cron.daily
 ln -s /path/to/redmine_pyreminder_cron.sh redmine_pyreminder
+```
 
 Edit redmine_pyreminder_cron.sh and configure it for your database,
 SMTP server, and desired notificaitons.
